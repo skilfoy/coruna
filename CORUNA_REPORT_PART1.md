@@ -1,3 +1,9 @@
+# CORUNA CONTAINER EVOLUTION REPORT — PART 1 of 4
+
+**Full report lines 1–450 of 1797** | [Index](CORUNA_CONTAINER_EVOLUTION_REPORT.md) | [Part 2](CORUNA_REPORT_PART2.md)
+
+---
+
 # Coruna Payload Container Evolution & Module Comparative Analysis
 
 **Classification**: UNCLASSIFIED // RESEARCH  
@@ -60,112 +66,193 @@ This timeline is derived purely from static presence/absence and identity of the
 
 ## 3. Detailed Inventory of All Containers
 
-### 3.1 Generation D — Dual-Driver Containers (Complete Entry Tables)
+### 3.1 Generation D — Dual-Driver (Data-Driven)
 
-#### Container `377bed7460f7538f96bbad7bdc2b8294bdc54599`
+#### 3.1.1 `377bed7460f7538f96bbad7bdc2b8294bdc54599`
+- **Type 0x08**: 228928 B (modern shared)
+- **Type 0x09 primary** (f1=0x90000): 333520 B
+- **Type 0x09 secondary** (f1=0x90001): 330304 B
+- **Type 0x0F**: 191296 B (modern shared)
+- **Type 0x07 (DEADD00F)**: present (SHA ea2db48a…)
+- **Type 0x05 (KIEA)**: 24844 B (SHA f41d90fd…)
+- **Type 0x07 secondary**: 468 B
+- **Notes**: Largest dual-driver pair. Previously the primary subject of original dual-driver research.
 
-**Generation**: D (Dual-Driver / Data-Driven)  
-**Notes**: Dual-driver (data-driven). Primary subject of prior original research. Largest type 0x09 pair.
+#### 3.1.2 `1334417664270db20af705f422878c53c8378203`
+- **Type 0x08**: 228928 B (identical)
+- **Type 0x09 primary** (f1=0x90000): 284048 B
+- **Type 0x09 secondary** (f1=0x90001): 263536 B
+- **Type 0x0F**: 191296 B (identical)
+- **Type 0x07 (DEADD00F)**: identical
+- **Type 0x05 (KIEA)**: identical SHA and size
+- **Type 0x07 secondary**: 468 B
+- **Notes**: Second dual-driver instance. Confirms the design was applied to at least two independent containers targeting the same version window.
 
-| Entry | Filename | f1 (dec) | f1 (hex) | Type | Size (bytes) | SHA-1 |
-|-------|----------|----------|----------|------|--------------|-------|
-| entry0 | `entry0_type0x08.dylib` | 524288 | 0x80000 | 0x08 | 228928 | `b81dd3e8d4c5d6699ae7aa4d96da9a50b79fda1a` |
-| entry1 | `entry1_type0x09.dylib` | 589824 | 0x90000 | 0x09 | 333520 | `603f703de67c3ead9614c780224153e37e5fcd3b` |
-| entry2 | `entry2_type0x0f.dylib` | 983040 | 0xF0000 | 0x0F | 191296 | `e8c656a78ace2f7c6f0f13f4364cd716efb5aa93` |
-| entry3 | `entry3_type0x07.bin` | 458757 | 0x70005 | 0x07 | 44 | `ea2db48aec8c6215bee0cedc49f084832b5090f2` |
-| entry4 | `entry4_type0x05.bin` | 327680 | 0x50000 | 0x05 | 24844 | `f41d90fda2ffe35c5bc332b7944b6f0243b92ed7` |
-| entry5 | `entry5_type0x09.dylib` | 589825 | 0x90001 | 0x09 | 330304 | `aace95993995df8c01194f68d1203081c6b9a6bc` |
-| entry6 | `entry6_type0x07.bin` | 458752 | 0x70000 | 0x07 | 468 | `629744abf54ff0cbbaf463fa4ff8100192eea933` |
+### 3.2 Generation C — Transitional (Type 0x09 + Type 0x0A)
 
-**Structural observations**:
-- Contains exactly two type 0x09 records (f1 0x90000 and 0x90001).
-- Shares the identical KIEA type 0x05 blob (24844 bytes).
-- Uses the modern type 0x08 (228928 B) and modern type 0x0F (191296 B).
-- DEADD00F primary config is present and identical to all other mature containers.
+#### 3.2.1 `1b2cbbde08f8b2330b7400abcb97c9573973e942`
+- Type 0x08: 228928 B (modern)
+- Type 0x09: 300912 B (single)
+- Type 0x0F: 191296 B
+- Type 0x07 DEADD00F: present
+- Type 0x0A dylib: 50344 B (f1=0xA0000)
+- Type 0x07 secondary: 468 B
+- **No type 0x05 / no second type 0x09**
 
-#### Container `1334417664270db20af705f422878c53c8378203`
+#### 3.2.2 `c8a14d79a27953242d60243ee2f505a85d9232cc`
+- Type 0x08: 228928 B
+- Type 0x09: 284048 B
+- Type 0x0F: 191296 B
+- Type 0x07 DEADD00F: present
+- Type 0x0A dylib: 50344 B
+- Type 0x07 secondary: 468 B
 
-**Generation**: D (Dual-Driver / Data-Driven)  
-**Notes**: Dual-driver (data-driven). Second confirmed instance of shared KIEA + dual type 0x09.
+#### 3.2.3 `e9f898587620186e31119fbf32660f26c1e048e0`
+- Type 0x08: 196864 B (**older** implant)
+- Type 0x09: 284048 B
+- Type 0x0F: 192096 B (older)
+- Type 0x07 DEADD00F: present
+- Type 0x0A dylib: 50344 B (different SHA)
+- Type 0x07 secondary: 468 B
 
-| Entry | Filename | f1 (dec) | f1 (hex) | Type | Size (bytes) | SHA-1 |
-|-------|----------|----------|----------|------|--------------|-------|
-| entry0 | `entry0_type0x08.dylib` | 524288 | 0x80000 | 0x08 | 228928 | `b81dd3e8d4c5d6699ae7aa4d96da9a50b79fda1a` |
-| entry1 | `entry1_type0x09.dylib` | 589824 | 0x90000 | 0x09 | 284048 | `172b89e4fd8be280eb0d8ff6744941e995816c63` |
-| entry2 | `entry2_type0x0f.dylib` | 983040 | 0xF0000 | 0x0F | 191296 | `e8c656a78ace2f7c6f0f13f4364cd716efb5aa93` |
-| entry3 | `entry3_type0x07.bin` | 458757 | 0x70005 | 0x07 | 44 | `ea2db48aec8c6215bee0cedc49f084832b5090f2` |
-| entry4 | `entry4_type0x05.bin` | 327680 | 0x50000 | 0x05 | 24844 | `f41d90fda2ffe35c5bc332b7944b6f0243b92ed7` |
-| entry5 | `entry5_type0x09.dylib` | 589825 | 0x90001 | 0x09 | 263536 | `0cfd609835402e89cccee0a36b31bbd8087cd663` |
-| entry6 | `entry6_type0x07.bin` | 458752 | 0x70000 | 0x07 | 468 | `60b91ea5178e92498b529a47182868c1244b024b` |
+#### 3.2.4 `f4120dc6717a489435d86943472c5a2444aac8e6`
+- Type 0x08: 228928 B
+- Type 0x09: 284048 B
+- Type 0x0F: 191296 B
+- Type 0x07 DEADD00F: present
+- Type 0x0A dylib: 50344 B
+- Type 0x07 secondary: 468 B
+- **Note**: Structurally identical to `c8a14d79…` in module set.
 
-**Structural observations**:
-- Contains exactly two type 0x09 records (f1 0x90000 and 0x90001).
-- Shares the identical KIEA type 0x05 blob (24844 bytes).
-- Uses the modern type 0x08 (228928 B) and modern type 0x0F (191296 B).
-- DEADD00F primary config is present and identical to all other mature containers.
+### 3.3 Generation B — Classic Single Type-0x09
 
-### 3.2 Generation C — Transitional Containers (Complete Entry Tables)
+#### 3.3.1 Older Type 0x08 / Type 0x0F cohort (196864 / 192096)
+- `226cbd845c5f470075505392be8693ec6d4f5ba3` — type 0x09 300912 B
+- `38af3c8ba461079a0edc83585023f76843066dcf` — type 0x09 284048 B
+- `4800048658463f971e752ff93c1767e9ae7f3431` — type 0x09 249024 B
+- `5258f6e3eef3eda249179aa1122b50b03cbeea18` — type 0x09 232256 B
+- `7a1cef00016b950be42f5288ead21fa6fccc3107` — type 0x09 333504 B
 
-#### Container `1b2cbbde08f8b2330b7400abcb97c9573973e942`
+All carry DEADD00F + secondary type 0x07 (468 B). No type 0x05, no dual drivers, no type 0x0A.
 
-**Generation**: C (Transitional — Type 0x09 + Type 0x0A)  
-**Notes**: Transitional. Single type 0x09 + compact type 0x0A dylib. Modern implant/persistence pair.
+#### 3.3.2 Newer Type 0x08 / Type 0x0F cohort (228928 / 191296)
+- `a78a94196b5d2c95865f6a8423a6b8eb86d07c6c` — type 0x09 248784 B
+- `ae7efd66ecde9e964cfe92f64e9b6461fce38f28` — type 0x09 300912 B
+- `b442ab113b829ff8c7bf34afa4d2d997889f308f` — type 0x09 231264 B
 
-| Entry | Filename | f1 (dec) | f1 (hex) | Type | Size (bytes) | SHA-1 |
-|-------|----------|----------|----------|------|--------------|-------|
-| entry0 | `entry0_type0x08.dylib` | 524288 | 0x80000 | 0x08 | 228928 | `b81dd3e8d4c5d6699ae7aa4d96da9a50b79fda1a` |
-| entry1 | `entry1_type0x09.dylib` | 589824 | 0x90000 | 0x09 | 300912 | `a284d84fbdd4b6c0613769047f8f4f2f55d91f9e` |
-| entry2 | `entry2_type0x0f.dylib` | 983040 | 0xF0000 | 0x0F | 191296 | `e8c656a78ace2f7c6f0f13f4364cd716efb5aa93` |
-| entry3 | `entry3_type0x07.bin` | 458757 | 0x70005 | 0x07 | 44 | `ea2db48aec8c6215bee0cedc49f084832b5090f2` |
-| entry4 | `entry4_type0x0a.dylib` | 655360 | 0xA0000 | 0x0A | 50344 | `f53bc3d1b239168e69a51ac67d86ca4c56aa1beb` |
-| entry5 | `entry5_type0x07.bin` | 458752 | 0x70000 | 0x07 | 468 | `15f4077e0d802a2c3abc3e79ea96e8aeb2bec119` |
+Same support-layer pattern as the older cohort, but with the modern implant and persistence modules.
 
-**Structural observations**:
-- Single type 0x09 driver only (no dual-driver selection).
-- Retains a compact type 0x0A dylib (50344 bytes, f1=0xA0000).
-- No type 0x05 / KIEA record present.
-- DEADD00F configuration is present.
+### 3.4 Generation A — Early Type-0x0A
 
-#### Container `c8a14d79a27953242d60243ee2f505a85d9232cc`
+#### 3.4.1 Dual type 0x0A (small)
+- `2a1d692b7b5ba793527b2c14b48db21a3e5d2c5f`
+  - Type 0x08: 51768 B
+  - Type 0x0A bin: 22660 B
+  - Type 0x0A dylib: 68912 B
+- `5e89f83ec50c6223d664d3f3260ef874a3d6d796`
+  - Type 0x08: 51760 B (near-identical)
+  - Type 0x0A bin: 22660 B (identical)
+  - Type 0x0A dylib: 68912 B (identical)
 
-**Generation**: C (Transitional — Type 0x09 + Type 0x0A)  
-**Notes**: Transitional. Structurally near-identical module set to f4120dc6…
+#### 3.4.2 Large type 0x0A bin
+- `72a5ac816709f9c331f2b3afb76cd3d96517ea14`
+  - Type 0x08: 88120 B
+  - Type 0x0A bin: 507450 B
+- `980c77f1747afa9ac1fa5f8fbfb9e6663e9f82bb`
+  - Type 0x08: 104528 B
+  - Type 0x0A bin: 507450 B (identical large blob)
+- `f8a86cf368fdbbe294813926a2a229df041eb758`
+  - Type 0x08: 88112 B
+  - Type 0x0A bin: 507450 B (identical)
 
-| Entry | Filename | f1 (dec) | f1 (hex) | Type | Size (bytes) | SHA-1 |
-|-------|----------|----------|----------|------|--------------|-------|
-| entry0 | `entry0_type0x08.dylib` | 524288 | 0x80000 | 0x08 | 228928 | `b81dd3e8d4c5d6699ae7aa4d96da9a50b79fda1a` |
-| entry1 | `entry1_type0x09.dylib` | 589824 | 0x90000 | 0x09 | 284048 | `172b89e4fd8be280eb0d8ff6744941e995816c63` |
-| entry2 | `entry2_type0x0f.dylib` | 983040 | 0xF0000 | 0x0F | 191296 | `e8c656a78ace2f7c6f0f13f4364cd716efb5aa93` |
-| entry3 | `entry3_type0x07.bin` | 458757 | 0x70005 | 0x07 | 44 | `ea2db48aec8c6215bee0cedc49f084832b5090f2` |
-| entry4 | `entry4_type0x0a.dylib` | 655360 | 0xA0000 | 0x0A | 50344 | `f53bc3d1b239168e69a51ac67d86ca4c56aa1beb` |
-| entry5 | `entry5_type0x07.bin` | 458752 | 0x70000 | 0x07 | 468 | `60b91ea5178e92498b529a47182868c1244b024b` |
+**No DEADD00F, no type 0x09, no type 0x0F in any Generation A container.**
 
-#### Container `e9f898587620186e31119fbf32660f26c1e048e0`
+### 3.5 Anomalous
+- `7a7d99099b035b2c6512b6ebeeea6df1ede70fbb` — contains only `raw.bin` (2192 B). Treated as non-standard / incomplete for the purposes of this taxonomy.
 
-**Generation**: C (Transitional — Type 0x09 + Type 0x0A)  
-**Notes**: Transitional. Uses older type 0x08/0x0F pair while still carrying type 0x0A.
+---
 
-| Entry | Filename | f1 (dec) | f1 (hex) | Type | Size (bytes) | SHA-1 |
-|-------|----------|----------|----------|------|--------------|-------|
-| entry0 | `entry0_type0x08.dylib` | 524288 | 0x80000 | 0x08 | 196864 | `5f677b5185e0c919ba2e08901b44b5715b5e15f1` |
-| entry1 | `entry1_type0x09.dylib` | 589824 | 0x90000 | 0x09 | 284048 | `fa7f7a9e84299b654d9eb5f54d09ead4c5a696c3` |
-| entry2 | `entry2_type0x0f.dylib` | 983040 | 0xF0000 | 0x0F | 192096 | `b886ab5c501d2b2cc476fc48d0fcab9b2e20328b` |
-| entry3 | `entry3_type0x07.bin` | 458757 | 0x70005 | 0x07 | 44 | `ea2db48aec8c6215bee0cedc49f084832b5090f2` |
-| entry4 | `entry4_type0x0a.dylib` | 655360 | 0xA0000 | 0x0A | 50344 | `5fa390b9e291824fde40cdd76ac85b67ccb8ee0f` |
-| entry5 | `entry5_type0x07.bin` | 458752 | 0x70000 | 0x07 | 468 | `60b91ea5178e92498b529a47182868c1244b024b` |
+## 4. Type 0x08 Implant Comparative Analysis
 
-#### Container `f4120dc6717a489435d86943472c5a2444aac8e6`
+### 4.1 Role of Type 0x08
 
-**Generation**: C (Transitional — Type 0x09 + Type 0x0A)  
-**Notes**: Transitional. Module set matches c8a14d79… closely.
+Across the mature generations (B–D), the type 0x08 dylib is the primary post-exploitation implant loaded after successful kernel privilege escalation. It is the module that receives control from the type 0x09 driver (or, in earlier designs, from type 0x0A paths) and is responsible for subsequent actions such as:
 
-| Entry | Filename | f1 (dec) | f1 (hex) | Type | Size (bytes) | SHA-1 |
-|-------|----------|----------|----------|------|--------------|-------|
-| entry0 | `entry0_type0x08.dylib` | 524288 | 0x80000 | 0x08 | 228928 | `b81dd3e8d4c5d6699ae7aa4d96da9a50b79fda1a` |
-| entry1 | `entry1_type0x09.dylib` | 589824 | 0x90000 | 0x09 | 284048 | `172b89e4fd8be280eb0d8ff6744941e995816c63` |
-| entry2 | `entry2_type0x0f.dylib` | 983040 | 0xF0000 | 0x0F | 191296 | `e8c656a78ace2f7c6f0f13f4364cd716efb5aa93` |
-| entry3 | `entry3_type0x07.bin` | 458757 | 0x70005 | 0x07 | 44 | `ea2db48aec8c6215bee0cedc49f084832b5090f2` |
-| entry4 | `entry4_type0x0a.dylib` | 655360 | 0xA0000 | 0x0A | 50344 | `f53bc3d1b239168e69a51ac67d86ca4c56aa1beb` |
-| entry5 | `entry5_type0x07.bin` | 458752 | 0x70000 | 0x07 | 468 | `60b91ea5178e92498b529a47182868c1244b024b` |
+- Establishing a stable execution environment inside the compromised process context
+- Loading or coordinating the type 0x0F persistence / SpringBoard injection component
+- Performing any final capability checks or environment sanitization
 
-**End of Part 1** — Continue to [Part 2](CORUNA_REPORT_PART2.md)
+Because the same type 0x08 binary (by SHA) is shared across many containers, it represents one of the highest-value detection and forensic pivots in the corpus.
+
+### 4.2 Observed Variants
+
+Five distinct size families exist:
+
+| Variant ID | Size (bytes) | SHA-1 | Associated Generations | # Containers |
+|------------|--------------|-------|------------------------|--------------|
+| **Modern Shared** | 228928 | b81dd3e8d4c5d6699ae7aa4d96da9a50b79fda1a | Late Gen B, Gen C, Gen D | 9+ |
+| **Older Shared** | 196864 | 5f677b5185e0c919ba2e08901b44b5715b5e15f1 | Early Gen B | 5 |
+| **Gen-A Large-A** | 104528 | e1341a854a691a1f79d33e41d5023e65184957ad | Gen A (with 507 KB 0x0A) | 1 |
+| **Gen-A Mid** | 88120 / 88112 | 1d49a412… / a4f7884a… | Gen A (with 507 KB 0x0A) | 2 |
+| **Gen-A Small** | 51768 / 51760 | 90753f98… / f836c402… | Gen A (dual small 0x0A) | 2 |
+
+### 4.3 Modern vs Older Shared Implants (Primary Comparison)
+
+The two dominant variants (228928 B and 196864 B) differ by approximately 32 KB. Both appear with the DEADD00F configuration and type 0x0F, indicating they serve the same architectural role in the post-exploitation chain.
+
+**Key observations**:
+
+- The 228928-byte implant is the exclusive type 0x08 used by both dual-driver containers (Gen D) and by all transitional Gen C containers that also carry the modern type 0x0F (191296 B).
+- The 196864-byte implant is paired exclusively with the older type 0x0F (192096 B).
+- No container mixes a modern type 0x08 with an older type 0x0F, or vice versa. The implant and persistence modules were updated as a coordinated pair.
+- The size delta (~32 KB) is large enough to accommodate additional capability, new offsets, or expanded logging/anti-analysis logic, but too large to be explained by simple padding.
+
+**Inference**: The move from the 196864-byte to the 228928-byte implant constitutes a major internal revision of the post-exploitation stage, contemporaneous with (or slightly preceding) the introduction of the dual-driver kernel stage.
+
+### 4.4 Generation A Implants
+
+The three smaller Gen A variants (≈51–104 KB) are substantially less complex. Their co-occurrence with type 0x0A modules (and complete absence of type 0x09 / type 0x0F / DEADD00F) indicates they belong to an earlier, less modular design in which the implant and the exploitation primitive were more tightly coupled.
+
+### 4.5 Detection Value
+
+Because the modern 228928-byte implant (SHA b81dd3e8…) is shared across the majority of mature containers, a single high-confidence YARA or hash rule for this binary covers Gen C, late Gen B, and both Gen D dual-driver samples. The older 196864-byte implant provides coverage for the preceding cohort.
+
+---
+
+## 5. Type 0x0A Module Analysis (Generations A & C)
+
+### 5.1 Distribution
+
+Type 0x0A records appear in two distinct contexts:
+
+1. **Generation A (primary path)** — type 0x0A is the main (or only) exploitation / post-exploitation module.
+2. **Generation C (secondary / hybrid path)** — a compact type 0x0A dylib is packaged alongside a full type 0x09 driver.
+
+Type 0x0A is entirely absent from pure Generation B single-driver containers and from Generation D dual-driver containers.
+
+### 5.2 Generation A Type 0x0A Variants
+
+| Container | Type 0x0A Artifacts | Notes |
+|-----------|---------------------|-------|
+| `2a1d692b…` / `5e89f83e…` | 22660 B .bin + 68912 B .dylib | Near-identical pair; smallest type 0x0A set |
+| `72a5ac81…` / `980c77f1…` / `f8a86cf3…` | 507450 B .bin | Identical large binary across three containers; paired with mid-size type 0x08 |
+
+The 507450-byte type 0x0A.bin is the single largest individual module in the entire corpus outside the dual type 0x09 drivers. Its identical presence in three separate containers strongly suggests a stable, reused exploitation or payload component from the earliest recovered phase.
+
+### 5.3 Generation C Type 0x0A
+
+All four Gen C containers carry a type 0x0A dylib of exactly 50344 bytes (f1 = 0xA0000). Two distinct SHAs are observed, indicating at least one internal revision of this compact module.
+
+In Gen C the type 0x0A dylib coexists with a complete modern (or near-modern) type 0x09 + type 0x0F + DEADD00F stack. This is the clearest evidence of a transitional packaging strategy: the operators distributed both the older type 0x0A path and the newer type 0x09 path in the same container, presumably to maximize compatibility or to retain a fallback.
+
+### 5.4 Disappearance in Later Generations
+
+Once the dual-driver design (Gen D) is introduced, type 0x0A records vanish. The data-driven type 0x09 pair + shared KIEA constants appear to have fully superseded the earlier type 0x0A approach for the version window targeted by those two containers.
+
+### 5.5 Analytical Limits
+
+Without interactive disassembly, the precise capability differences between the 50 KB Gen C type 0x0A dylib and the much larger Gen A 507 KB type 0x0A.bin remain opaque. The size disparity alone indicates they are not simple revisions of the same module.
+
+---
+
+**Continue to [Part 2](CORUNA_REPORT_PART2.md)**
