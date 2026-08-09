@@ -2,18 +2,21 @@
 
 **Classification**: UNCLASSIFIED // RESEARCH  
 **Date**: 2026-07-26 (expanded 2026-07-27)  
-**Status**: Complete multi-part intelligence-grade report
+**Status**: COMPLETE uncondensed local working copy published
 
-This is the complete original-research report on the Coruna payload container corpus. Full analytical content is published across four parts:
+This is the **full, uncondensed** original-research report (1,797 lines). No analytical content has been removed or summarized.
 
-| Part | Content | Link |
-|------|---------|------|
-| **Part 1** | Executive summary, taxonomy, Gen D & C complete entry tables, Type 0x08/0x0A overview | [CORUNA_REPORT_PART1.md](CORUNA_REPORT_PART1.md) |
-| **Part 2** | Full expanded inventory (all containers), Type 0x08 complete variant catalogue, Type 0x0A full analysis | [CORUNA_REPORT_PART2.md](CORUNA_REPORT_PART2.md) |
-| **Part 3** | Complete Generation B entry tables, size clustering, timeline, design pressure, YARA rules, confidence matrix, key judgments | [CORUNA_REPORT_PART3.md](CORUNA_REPORT_PART3.md) |
-| **Part 4** | Detection combination logic, coverage matrix, formal decision tree, relative dating arguments, methodology, reproducibility checklist, all appendices (type 0x09 register, f1 namespace, generation membership) | [CORUNA_REPORT_PART4.md](CORUNA_REPORT_PART4.md) |
+## Complete report (5 parts)
 
-**Companion report**: [DUAL_DRIVER_SUPPORT_LAYER_ORIGINAL_RESEARCH.md](DUAL_DRIVER_SUPPORT_LAYER_ORIGINAL_RESEARCH.md)
+| Part | Lines | Link |
+|------|-------|------|
+| **Part 1** | 1–360 | [CORUNA_FULL_PART1.md](CORUNA_FULL_PART1.md) |
+| **Part 2** | 361–720 | [CORUNA_FULL_PART2.md](CORUNA_FULL_PART2.md) |
+| **Part 3** | 721–1080 | [CORUNA_FULL_PART3.md](CORUNA_FULL_PART3.md) |
+| **Part 4** | 1081–1440 | [CORUNA_FULL_PART4.md](CORUNA_FULL_PART4.md) |
+| **Part 5** | 1441–1797 | [CORUNA_FULL_PART5.md](CORUNA_FULL_PART5.md) |
+
+**Companion**: [DUAL_DRIVER_SUPPORT_LAYER_ORIGINAL_RESEARCH.md](DUAL_DRIVER_SUPPORT_LAYER_ORIGINAL_RESEARCH.md)
 
 ---
 
@@ -25,13 +28,4 @@ This is the complete original-research report on the Coruna payload container co
 4. Type 0x0A was primary in Gen A, retained as fallback in Gen C, eliminated in Gen D.
 5. Gen B already required ≥7 distinct type 0x09 builds (231–333 KB) — the maintenance cost the dual-driver design amortizes.
 
-## Four-Generation Taxonomy (Summary)
-
-| Gen | Designation | Count | Defining Features |
-|-----|-------------|-------|-------------------|
-| A | Early Type-0x0A | 5 | Type 0x0A primary; no type 0x09/0x0F/DEADD00F |
-| B | Classic Single Type-0x09 | 8 | Single type 0x09 + DEADD00F + type 0x0F |
-| C | Transitional | 4 | Type 0x09 stack + retained type 0x0A dylib |
-| D | Dual-Driver | 2 | Two type 0x09 (f1 0x90000/0x90001) + shared KIEA |
-
-Start with [Part 1](CORUNA_REPORT_PART1.md).
+Start with [Part 1](CORUNA_FULL_PART1.md).
