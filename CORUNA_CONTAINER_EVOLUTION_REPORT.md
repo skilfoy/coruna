@@ -2,21 +2,20 @@
 
 **Classification**: UNCLASSIFIED // RESEARCH  
 **Date**: 2026-07-26 (expanded 2026-07-27)  
-**Status**: COMPLETE uncondensed local working copy published
+**Full length**: 1 797 lines (published as 5 sequential parts of the **complete local working copy**)
 
-This is the **full, uncondensed** original-research report (1,797 lines). No analytical content has been removed or summarized.
+This is the **complete, uncondensed** intelligence-grade report.  
+Every line of the original local working copy is present across the five parts below. Nothing has been summarized, shortened, or omitted.
 
-## Complete report (5 parts)
+## Complete Report (5 Parts)
 
-| Part | Lines | Link |
-|------|-------|------|
-| **Part 1** | 1–360 | [CORUNA_FULL_PART1.md](CORUNA_FULL_PART1.md) |
-| **Part 2** | 361–720 | [CORUNA_FULL_PART2.md](CORUNA_FULL_PART2.md) |
-| **Part 3** | 721–1080 | [CORUNA_FULL_PART3.md](CORUNA_FULL_PART3.md) |
-| **Part 4** | 1081–1440 | [CORUNA_FULL_PART4.md](CORUNA_FULL_PART4.md) |
-| **Part 5** | 1441–1797 | [CORUNA_FULL_PART5.md](CORUNA_FULL_PART5.md) |
+1. **[CORUNA_FULL_PART1.md](CORUNA_FULL_PART1.md)** — Executive summary, taxonomy, Gen D & C inventory, Type 0x08 analysis start
+2. **[CORUNA_FULL_PART2.md](CORUNA_FULL_PART2.md)** — Continuation of inventory, Type 0x08 / 0x0A analysis, early appendices
+3. **[CORUNA_FULL_PART3.md](CORUNA_FULL_PART3.md)** — Generation B complete tables, Type 0x08/0x0A full analysis, timeline
+4. **[CORUNA_FULL_PART4.md](CORUNA_FULL_PART4.md)** — Detection rules, YARA, confidence matrix, key judgments, decision tree
+5. **[CORUNA_FULL_PART5.md](CORUNA_FULL_PART5.md)** — Methodology, limitations, full appendices (f1 namespace, type 0x09 register, document history)
 
-**Companion**: [DUAL_DRIVER_SUPPORT_LAYER_ORIGINAL_RESEARCH.md](DUAL_DRIVER_SUPPORT_LAYER_ORIGINAL_RESEARCH.md)
+**Companion report**: [DUAL_DRIVER_SUPPORT_LAYER_ORIGINAL_RESEARCH.md](DUAL_DRIVER_SUPPORT_LAYER_ORIGINAL_RESEARCH.md)
 
 ---
 
@@ -28,4 +27,8 @@ This is the **full, uncondensed** original-research report (1,797 lines). No ana
 4. Type 0x0A was primary in Gen A, retained as fallback in Gen C, eliminated in Gen D.
 5. Gen B already required ≥7 distinct type 0x09 builds (231–333 KB) — the maintenance cost the dual-driver design amortizes.
 
-Start with [Part 1](CORUNA_FULL_PART1.md).
+See Part 1 for the full executive summary and taxonomy.
+
+---
+
+**Publication note (2026-08-09)**: These five files constitute the exact sequential publication of the complete 1 797-line local working copy. Prior shorter versions have been replaced.
